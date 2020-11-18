@@ -149,6 +149,7 @@ class Scraper:
 		return self._get_entity()
 
 	def _request(self, method, url, params = None, data = None, headers = None, timeout = 10, responseOkCallback = None, allowRedirects = True):
+		error_msg = ''
 		for attempt in range(self._retries + 1):
 			# The request is newly prepared on each retry because of potential cookie updates.
 			req = self._session.prepare_request(requests.Request(method, url, params = params, data = data, headers = headers))
@@ -166,6 +167,7 @@ class Scraper:
 					retrying = ''
 					level = logging.ERROR
 				logger.log(level, f'Error retrieving {req.url}: {exc!r}{retrying}')
+				error_msg = f'{exc!r}'
 			else:
 				if responseOkCallback is not None:
 					success, msg = responseOkCallback(r)
@@ -189,7 +191,7 @@ class Scraper:
 				logger.info(f'Waiting {sleepTime:.0f} seconds')
 				time.sleep(sleepTime)
 		else:
-			msg = f'{self._retries + 1} requests to {req.url} failed, giving up.'
+			msg = f'{self._retries + 1} requests to {req.url} failed, giving up. Error: {error_msg}'
 			logger.fatal(msg)
 			raise ScraperException(msg)
 		raise RuntimeError('Reached unreachable code')
