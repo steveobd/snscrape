@@ -1,6 +1,6 @@
-Metadata-Version: 1.2
+Metadata-Version: 2.1
 Name: snscrape
-Version: 0.3.5.dev59+gab7c5d9.d20201009
+Version: 0.3.5.dev98+g42f04fa
 Summary: A social networking service scraper
 Home-page: https://github.com/steveodb/snscrape
 Author: JustAnotherArchivist
@@ -10,4 +10,6 @@ Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
 Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
 Requires-Python: ~=3.8
+Provides-Extra: test

@@ -1,9 +1,12 @@
+.gitignore
 LICENSE
 README.md
 setup.py
+dist/snscrape-0.3.5.dev59+gab7c5d9-py3.8.egg
+dist/snscrape-0.3.5.dev59+gab7c5d9.d20201009-py3.8.egg
 snscrape/__init__.py
+snscrape/_cli.py
 snscrape/base.py
-snscrape/cli.py
 snscrape/version.py
 snscrape.egg-info/PKG-INFO
 snscrape.egg-info/SOURCES.txt
